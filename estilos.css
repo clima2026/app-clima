@@ -13,8 +13,42 @@ body {
     transition: background 0.5s ease;
 }
 
-/* Fondos según el clima */
+/* ======================================
+   RETO 3 — Modo Claro / Oscuro
+   ====================================== */
+body.tema-claro {
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    color: #1a1a1a;
+}
 
+body.tema-claro #inputCiudad {
+    border-color: #333;
+    background: rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+}
+
+body.tema-claro #inputCiudad::placeholder {
+    color: #666;
+}
+
+body.tema-claro .resultado {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .detalle {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro button {
+    background: #1e3c72;
+    color: white;
+}
+
+body.tema-claro button:hover {
+    background: #2a5298;
+}
+
+/* Fondos según el clima (tus estilos originales) */
 body.clima-soleado {
     background: linear-gradient(135deg, #f12711, #f5af19);
 }
@@ -31,6 +65,45 @@ body.clima-nieve {
     background: linear-gradient(135deg, #e6dada, #274046);
 }
 
+/* Botones de retos */
+.boton-tema, .boton-ubicacion {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    padding: 10px 20px;
+}
+
+.boton-ubicacion {
+    margin-left: 0;
+}
+
+/* ======================================
+   RETO 2 — Historial de búsquedas
+   ====================================== */
+.historial {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+.historial p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.historial button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+body.tema-claro .historial {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ======================================
+   Tus estilos originales
+   ====================================== */
 header {
     text-align: center;
     margin-bottom: 30px;
@@ -56,6 +129,10 @@ header h1 {
 
 header p {
     color: #e0e0e0;
+}
+
+body.tema-claro header p {
+    color: #444;
 }
 
 main {
@@ -96,6 +173,7 @@ button {
     font-weight: bold;
     border-radius: 25px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
 button:hover {
@@ -128,6 +206,10 @@ button:hover {
     margin-bottom: 20px;
 }
 
+body.tema-claro .resultado .pais {
+    color: #555;
+}
+
 .icono-clima {
     width: 100px;
     height: 100px;
@@ -142,6 +224,7 @@ button:hover {
 .descripcion {
     font-size: 1.3rem;
     margin-bottom: 20px;
+    text-transform: capitalize;
 }
 
 .detalles {
@@ -163,6 +246,10 @@ button:hover {
     text-transform: uppercase;
 }
 
+body.tema-claro .etiqueta {
+    color: #666;
+}
+
 .valor {
     font-size: 1.3rem;
     font-weight: bold;
@@ -175,6 +262,30 @@ button:hover {
     font-style: italic;
 }
 
+body.tema-claro #estado {
+    color: #555;
+}
+
+/* ======================================
+   RETO 4 — Botón Compartir WhatsApp
+   ====================================== */
+.compartir-whatsapp {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #25D366;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.compartir-whatsapp:hover {
+    transform: scale(1.05);
+    background: #1da854;
+}
+
 footer {
     text-align: center;
     margin-top: 40px;
@@ -182,8 +293,11 @@ footer {
     font-size: 0.85rem;
 }
 
-@media (max-width: 600px) {
+body.tema-claro footer {
+    color: #666;
+}
 
+@media (max-width: 600px) {
     header h1 {
         font-size: 1.8rem;
     }

@@ -13,7 +13,6 @@
 <body>
 
     <header>
-
         <img src="img/baner.png"
              alt="Banner de la App del Clima"
              class="banner">
@@ -21,42 +20,42 @@
         <h1>☀️ App del Clima</h1>
 
         <p>Consulta el clima en tiempo real de cualquier ciudad</p>
-
+        
+        <!-- RETO 3: Botón de tema -->
+        <button id="botonTema" class="boton-tema">🌙 Tema</button>
     </header>
 
     <main>
-
         <form id="formulario" class="buscador">
-
             <input
                 type="text"
                 id="inputCiudad"
                 placeholder="Escribe una ciudad..."
                 required
             >
-
             <button type="submit">
                 🔍 Consultar
             </button>
-
+            <!-- RETO 1: Botón de ubicación -->
+            <button type="button" id="botonUbicacion" class="boton-ubicacion">
+                📍 Mi ubicación
+            </button>
         </form>
+
+        <!-- RETO 2: Historial -->
+        <div id="historial" class="historial"></div>
 
         <div id="resultado" class="resultado"></div>
 
         <p id="estado"></p>
-
     </main>
 
     <footer>
-
         <p>© 2026 - App del Clima | Datos de OpenWeatherMap</p>
-
         <p>Banner diseñado en Canva ☁️</p>
-
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 
 </html>
