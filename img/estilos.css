@@ -1,0 +1,41 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: sans-serif;
+  min-height: 100vh;
+  padding: 1rem;
+  transition: background 0.5s ease;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  text-align: center;
+}
+
+body.clima-soleado { background: linear-gradient(135deg, #f12711, #f5af19); }
+body.clima-nublado { background: linear-gradient(135deg, #606c88, #3f4c6b); }
+body.clima-lluvioso { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+body.clima-nieve { background: linear-gradient(135deg, #e6dada, #274046); }
+body.modo-oscuro { background: #1a1a1a !important; color: #f0f0f0; }
+
+header, main, footer { max-width: 450px; margin: 0 auto; }
+.banner { max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 1rem; }
+h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+.boton-tema { margin: 0.5rem; padding: 0.6rem 1rem; border-radius: 8px; border: none; cursor: pointer; background: rgba(0,0,0,0.1); }
+body.modo-oscuro .boton-tema { background: rgba(255,255,255,0.15); }
+
+.buscador { margin: 1rem 0; }
+input, button { padding: 0.7rem 1rem; border: none; border-radius: 8px; margin: 0.3rem; font-size: 1rem; }
+button { cursor: pointer; background: rgba(255,255,255,0.3); transition: 0.2s; }
+button:hover { background: rgba(255,255,255,0.5); }
+
+.boton-ubicacion { background: rgba(0,0,0,0.1); }
+body.modo-oscuro .boton-ubicacion { background: rgba(255,255,255,0.15); }
+
+.historial { margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.historial button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+
+.resultado { margin-top: 1.5rem; padding: 1.2rem; border-radius: 12px; background: rgba(255,255,255,0.2); }
+.temperatura { font-size: 2rem; font-weight: bold; margin: 0.5rem 0; }
+.boton-compartir { margin-top: 1rem; }
+.error { color: #c0392b; }
+
+footer { margin-top: 2rem; font-size: 0.8rem; opacity: 0.7; }
