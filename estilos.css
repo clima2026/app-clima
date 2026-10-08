@@ -1,316 +1,41 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    color: white;
-    min-height: 100vh;
-    padding: 20px;
-    transition: background 0.5s ease;
+  font-family: sans-serif;
+  min-height: 100vh;
+  padding: 1rem;
+  transition: background 0.5s ease;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  text-align: center;
 }
 
-/* ======================================
-   RETO 3 — Modo Claro / Oscuro
-   ====================================== */
-body.tema-claro {
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    color: #1a1a1a;
-}
+body.clima-soleado { background: linear-gradient(135deg, #f12711, #f5af19); }
+body.clima-nublado { background: linear-gradient(135deg, #606c88, #3f4c6b); }
+body.clima-lluvioso { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+body.clima-nieve { background: linear-gradient(135deg, #e6dada, #274046); }
+body.modo-oscuro { background: #1a1a1a !important; color: #f0f0f0; }
 
-body.tema-claro #inputCiudad {
-    border-color: #333;
-    background: rgba(0, 0, 0, 0.05);
-    color: #1a1a1a;
-}
+header, main, footer { max-width: 450px; margin: 0 auto; }
+.banner { max-width: 100%; height: auto; border-radius: 12px; margin-bottom: 1rem; }
+h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 
-body.tema-claro #inputCiudad::placeholder {
-    color: #666;
-}
+.boton-tema { margin: 0.5rem; padding: 0.6rem 1rem; border-radius: 8px; border: none; cursor: pointer; background: rgba(0,0,0,0.1); }
+body.modo-oscuro .boton-tema { background: rgba(255,255,255,0.15); }
 
-body.tema-claro .resultado {
-    background: rgba(0, 0, 0, 0.05);
-}
+.buscador { margin: 1rem 0; }
+input, button { padding: 0.7rem 1rem; border: none; border-radius: 8px; margin: 0.3rem; font-size: 1rem; }
+button { cursor: pointer; background: rgba(255,255,255,0.3); transition: 0.2s; }
+button:hover { background: rgba(255,255,255,0.5); }
 
-body.tema-claro .detalle {
-    background: rgba(0, 0, 0, 0.05);
-}
+.boton-ubicacion { background: rgba(0,0,0,0.1); }
+body.modo-oscuro .boton-ubicacion { background: rgba(255,255,255,0.15); }
 
-body.tema-claro button {
-    background: #1e3c72;
-    color: white;
-}
+.historial { margin: 1rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.historial button { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
 
-body.tema-claro button:hover {
-    background: #2a5298;
-}
+.resultado { margin-top: 1.5rem; padding: 1.2rem; border-radius: 12px; background: rgba(255,255,255,0.2); }
+.temperatura { font-size: 2rem; font-weight: bold; margin: 0.5rem 0; }
+.boton-compartir { margin-top: 1rem; }
+.error { color: #c0392b; }
 
-/* Fondos según el clima (tus estilos originales) */
-body.clima-soleado {
-    background: linear-gradient(135deg, #f12711, #f5af19);
-}
-
-body.clima-nublado {
-    background: linear-gradient(135deg, #606c88, #3f4c6b);
-}
-
-body.clima-lluvioso {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-}
-
-body.clima-nieve {
-    background: linear-gradient(135deg, #e6dada, #274046);
-}
-
-/* Botones de retos */
-.boton-tema, .boton-ubicacion {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    padding: 10px 20px;
-}
-
-.boton-ubicacion {
-    margin-left: 0;
-}
-
-/* ======================================
-   RETO 2 — Historial de búsquedas
-   ====================================== */
-.historial {
-    margin: 20px 0;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-}
-
-.historial p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.historial button {
-    margin: 5px;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-}
-
-body.tema-claro .historial {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-/* ======================================
-   Tus estilos originales
-   ====================================== */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.banner {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    border-radius: 15px;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.banner:hover {
-    transform: scale(1.02);
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    color: #e0e0e0;
-}
-
-body.tema-claro header p {
-    color: #444;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.buscador {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-}
-
-#inputCiudad {
-    padding: 15px 25px;
-    border: 2px solid white;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 1rem;
-    width: 300px;
-    outline: none;
-}
-
-#inputCiudad::placeholder {
-    color: #cccccc;
-}
-
-button {
-    background: white;
-    color: #1e3c72;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-button:hover {
-    background: #f0f0f0;
-    transform: scale(1.05);
-}
-
-.resultado {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    padding: 30px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    display: none;
-}
-
-.resultado.visible {
-    display: block;
-}
-
-.resultado .ciudad {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.resultado .pais {
-    font-size: 1.2rem;
-    color: #e0e0e0;
-    margin-bottom: 20px;
-}
-
-body.tema-claro .resultado .pais {
-    color: #555;
-}
-
-.icono-clima {
-    width: 100px;
-    height: 100px;
-}
-
-.temperatura {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.descripcion {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-    text-transform: capitalize;
-}
-
-.detalles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.detalle {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 15px;
-}
-
-.etiqueta {
-    font-size: 0.85rem;
-    color: #cccccc;
-    text-transform: uppercase;
-}
-
-body.tema-claro .etiqueta {
-    color: #666;
-}
-
-.valor {
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-#estado {
-    margin-top: 20px;
-    color: #e0e0e0;
-    font-style: italic;
-}
-
-body.tema-claro #estado {
-    color: #555;
-}
-
-/* ======================================
-   RETO 4 — Botón Compartir WhatsApp
-   ====================================== */
-.compartir-whatsapp {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #25D366;
-    color: white;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.2s ease;
-}
-
-.compartir-whatsapp:hover {
-    transform: scale(1.05);
-    background: #1da854;
-}
-
-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: #cccccc;
-    font-size: 0.85rem;
-}
-
-body.tema-claro footer {
-    color: #666;
-}
-
-@media (max-width: 600px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    #inputCiudad {
-        width: 100%;
-    }
-
-    .temperatura {
-        font-size: 2.5rem;
-    }
-
-    .banner {
-        max-width: 100%;
-    }
-}
+footer { margin-top: 2rem; font-size: 0.8rem; opacity: 0.7; }
